@@ -12,11 +12,15 @@ app.set('view engine', 'ejs'); //Setting up template engine, FOR THE FRONTEND
 
 
 app.get('/', function (req, res) {
-   res.send('Hello World');
+   res.render('index');
 });
 
-app.get('/index', function(req, res){
-   res.render('index');
+app.get('/morning', function(req, res){
+   res.render('morning');
+});
+
+app.get('/night', function(req, res){
+   res.render('night');
 });
 
 const server = http.createServer(app);
