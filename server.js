@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 var app = express();
 const http = require('http');
 
+const connection = require("./app/db")
+
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(morgan('dev'));
@@ -29,3 +31,9 @@ app.listen(8081, function () {
    
    console.log("Example app listening ")
 });
+
+
+
+
+
+
