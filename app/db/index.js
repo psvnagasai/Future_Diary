@@ -31,3 +31,7 @@ mongoose.connection.on('disconnect', () => {
 })
 
 connectWithRetry();
+
+const nDiary = require("../model/nightDiary.js");
+const mDiary = require("../model/morningDiary.js");
+

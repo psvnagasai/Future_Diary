@@ -3,9 +3,8 @@ var morgan = require('morgan');
 const bodyParser = require('body-parser');
 var app = express();
 const http = require('http');
-
 const connection = require("./app/db")
-
+const routeController = require("./app/controllers/userFunctions.js");
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use(morgan('dev'));
@@ -13,17 +12,19 @@ app.use(express.static('./public')); //For the images, stylesheets, etc. THE STA
 app.set('view engine', 'ejs'); //Setting up template engine, FOR THE FRONTEND
 
 
-app.get('/', function (req, res) {
-   res.render('index');
-});
+// app.get('/', function (req, res) {
+//    res.render('index');
+// });
 
-app.get('/morning', function(req, res){
-   res.render('morning');
-});
+// app.get('/morning', function(req, res){
+//    res.render('morning');
+// });
 
-app.get('/night', function(req, res){
-   res.render('night');
-});
+// app.get('/night', function(req, res){
+//    res.render('night');
+// });
+
+app.use("/", routeController);
 
 const server = http.createServer(app);
 // require('./app/routes')(app);
