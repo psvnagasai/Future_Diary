@@ -14,47 +14,17 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const morningModel = mongoose.model("mDiary");
 const nightModel = mongoose.model("nDiary");
+const userModel = mongoose.model("User");
 
 
 
 router.get("/", (req, res)=>{
-    
-    ///Setting
-    // var nEntry = new nightModel();
-    // nEntry.title = "Great DAy";
-    // nEntry.diaryID = "10";
-    // nEntry.info = "Today was a great day. How are oyou";
-    // nEntry.save();
 
     //Getting
-    nightModel.find((err, docs)=>{
+    userModel.find((err, docs)=>{
         if(!err)
         {
-            console.log(docs);
             res.render("index", { data : docs});
-        }
-        else
-        {
-            res.send("Error in code");
-        }
-    })
-});
-
-router.get("/night", (req, res)=>{
-    
-    ///Setting
-    // var nEntry = new nightModel();
-    // nEntry.title = "Great DAy";
-    // nEntry.diaryID = "10";
-    // nEntry.info = "Today was a great day. How are oyou";
-    // nEntry.save();
-
-    //Getting
-    nightModel.find((err, docs)=>{
-        if(!err)
-        {
-            console.log(docs);
-            res.render("night", { data : docs});
         }
         else
         {
@@ -65,26 +35,69 @@ router.get("/night", (req, res)=>{
 
 router.get("/morning", (req, res)=>{
     
-    ///Setting
-    // var nEntry = new nightModel();
-    // nEntry.title = "Great DAy";
-    // nEntry.diaryID = "10";
-    // nEntry.info = "Today was a great day. How are oyou";
-    // nEntry.save();
+    //Getting
+    nightModel.find((err, docs)=>{
+        if(!err)
+        {
+            res.render("morning", { data : docs});
+        }
+        else
+        {
+            res.send("Error in code of morningD");
+        }
+    })
+});
+
+router.get("/morning", (req, res)=>{
+    
+    //Getting
+    nightModel.find((err, docs)=>{
+        if(!err)
+        {
+            res.render("morning", { data : docs});
+        }
+        else
+        {
+            res.send("Error in code of morningD");
+        }
+    })
+});
+
+router.get("/night", (req, res)=>{
 
     //Getting
     nightModel.find((err, docs)=>{
         if(!err)
         {
-            console.log(docs);
-            res.render("morning", { data : docs});
+            res.render("night", { data : docs});
         }
         else
         {
-            res.send("Error in code");
+            res.send("Error in code of nightD");
         }
     })
 });
+
+router.post("/night", (req, res)=>{
+    console.log(req.body);
+    ///Setting
+    var nEntry = new nightModel();
+    nEntry.title = req.body.title;
+    nEntry.diaryID = Math.ceil(Math.random()*10000000) + "";
+    nEntry.info = req.body.info;
+    nEntry.save((err, doc)=>{
+        if(!err)
+        {
+            res.redirect("/night");
+        }
+        else
+        {
+             res.send("Error occured saving data to database");
+        }
+    });
+});
+
+
 
 module.exports = router;
 

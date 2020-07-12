@@ -12,24 +12,11 @@ app.use(express.static('./public')); //For the images, stylesheets, etc. THE STA
 app.set('view engine', 'ejs'); //Setting up template engine, FOR THE FRONTEND
 
 
-// app.get('/', function (req, res) {
-//    res.render('index');
-// });
-
-// app.get('/morning', function(req, res){
-//    res.render('morning');
-// });
-
-// app.get('/night', function(req, res){
-//    res.render('night');
-// });
-
 app.use("/", routeController);
 
 const server = http.createServer(app);
 // require('./app/routes')(app);
 app.listen(8081, function () {
-   
    console.log("Example app listening ")
 });
 

@@ -17,17 +17,17 @@
         <div class="container">
             <a class="btn btn-primary" href="/" role="button">&larr; Back</a>
             <div class="p-2">
-                <form>
+                <form action="/night" method="post">
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">Title, Unique thing, Mood, Literally anything to remind
+                        <label>Title, Unique thing, Mood, Literally anything to remind
                             yourself instantly of this day</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="yes">
+                        <input type="text" class="form-control" placeholder="blah-blah" value="" name="title">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1"><%=data[0].title%></label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                        <label>Add todays stuff</label>
+                        <textarea class="form-control" rows="10" value="" name="info"></textarea>
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
