@@ -1,15 +1,26 @@
 const mongoose = require("mongoose");
 const morningModel = mongoose.model("mDiary");
+const todosModel = mongoose.model("todos");
 
 module.exports = function(router){
 
     router.get("/morning", (req, res)=>{
-    
+        var todoData;
+        todosModel.find((err, docs)=>{
+            if(!err)
+            {
+                todoData = docs;
+            }
+            else
+            {
+                res.send("Error in code of todos model");
+            }
+        })
         //Getting
         morningModel.find((err, docs)=>{
             if(!err)
-            {
-                res.render("morning", { data : docs});
+            {   
+                res.render("morning", { data : docs, todos : todoData});
             }
             else
             {

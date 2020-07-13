@@ -19,8 +19,9 @@
             <div class="p-2">
                 <form action="/morning" method="post">
                     <div class="form-group">
-                        <label >Morning mood, Title, whatever</label>
-                        <input type="text" class="form-control" placeholder="Enter anything you want ffs" value="" name="title">
+                        <label>Morning mood, Title, whatever</label>
+                        <input type="text" class="form-control" placeholder="Enter anything you want ffs" value=""
+                            name="title">
                     </div>
                     <div class="form-group">
                         <label>Custom todo</label>
@@ -29,11 +30,9 @@
                     <div class="form-group">
                         <label>Select your tasks</label>
                         <select class="form-control" value="" name="todoList">
-                            <option>Will</option>
-                            <option>add</option>
-                            <option>loop</option>
-                            <option>with</option>
-                            <option>EJS</option>
+                            <% for(var i=0; i<todos.length; i++){ %>
+                                <option><%=todos[i].todo %></option>
+                            <% } %> 
                         </select>
                     </div>
                     <div class="form-group">
