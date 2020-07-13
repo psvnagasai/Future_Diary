@@ -20,15 +20,15 @@
                 <form action="/morning" method="post">
                     <div class="form-group">
                         <label >Morning mood, Title, whatever</label>
-                        <input type="text" class="form-control" placeholder="Enter anything you want ffs">
+                        <input type="text" class="form-control" placeholder="Enter anything you want ffs" value="" name="title">
                     </div>
                     <div class="form-group">
                         <label>Custom todo</label>
-                        <textarea class="form-control" rows="1"></textarea>
+                        <textarea class="form-control" rows="1" value="" name="customTodo"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Select your tasks</label>
-                        <select class="form-control">
+                        <select class="form-control" value="" name="todoList">
                             <option>Will</option>
                             <option>add</option>
                             <option>loop</option>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label>Custom todo</label>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" value="" name="todos"></textarea>
                     </div>
                     <!-- <div class="form-group">
                         <label for="exampleFormControlSelect2">Idk whether this will stay (For multiple select)</label>

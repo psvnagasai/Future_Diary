@@ -10,7 +10,15 @@ var morningSchema = new mongoose.Schema({
         type : String
     },
     
-    info : {
+    customTodo : {
+        type : String
+    },
+
+    todoList : {
+        type : String
+    },
+
+    todos : {
         type : String
     }
 }); 
