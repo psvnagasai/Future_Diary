@@ -31,7 +31,6 @@ module.exports = function(router){
     
     router.post("/morning", (req, res)=>{
         
-        console.log(req.body);
         ///Setting
         var mEntry = new morningModel();
         mEntry.title = req.body.title;

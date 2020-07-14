@@ -7,6 +7,8 @@
     <title>Document</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="/assets/diary.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/diary.js" type="text/javascript">
+    
 
 </head>
 
@@ -25,38 +27,31 @@
                     </div>
                     <div class="form-group">
                         <label>Custom todo</label>
-                        <textarea class="form-control" rows="1" value="" name="customTodo"></textarea>
+                        <textarea class="form-control" rows="1" value="" name="customTodo" id="todo"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label>Select your tasks</label>
-                        <select class="form-control" value="" name="todoList">
-                            <% for(var i=0; i<todos.length; i++){ %>
-                                <option><%=todos[i].todo %></option>
-                            <% } %> 
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Custom todo</label>
-                        <textarea class="form-control" rows="5" value="" name="todos"></textarea>
-                    </div>
-                    <!-- <div class="form-group">
-                        <label for="exampleFormControlSelect2">Idk whether this will stay (For multiple select)</label>
-                        <select multiple class="form-control" id="exampleFormControlSelect2">
-                            <option>we</option>
-                            <option>can</option>
-                            <option>use</option>
-                            <option>this</option>
-                            <option>too</option>
-                        </select>
-                    </div> -->
+                    <!-- <% for(var i=0; i<todos.length; i++){ %>
+                            <option value="<%=todos[i].todo %>"><%=todos[i].todo %></option>
+                        <% } %>  -->
+                    <p>
+                        <span class="output"></span>
+                    </p>
+
                     <button type="submit" class="btn btn-primary">Submit</button>
 
                 </form>
+                <button onclick="getTodo()" class="btn btn-primary">save todo</button>
+
             </div>
         </div>
 
     </div>
-
+    <script type="text/javascript">
+        function getTodo() {
+    selectTodo = document.querySelector('#todo');
+    value = selectTodo.value;
+    document.querySelector('.output').textContent = value;
+}
+    </script>
 </body>
 
 </html>
